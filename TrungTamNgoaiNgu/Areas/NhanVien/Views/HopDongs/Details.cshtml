@@ -1,0 +1,91 @@
+﻿@model MyTTNN.TrungTamNgoaiNgu.HopDong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/NhanVien/Views/Shared/_NhanVienLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HopDong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanVienID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanVienID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayKi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayKi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HanHd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HanHd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThaiKi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThaiKi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

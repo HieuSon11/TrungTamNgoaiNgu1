@@ -1,0 +1,103 @@
+﻿@model MyTTNN.TrungTamNgoaiNgu.NhanViens
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/NhanVien/Views/Shared/_NhanVienLayout.cshtml";
+}
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Nhân Viên</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="@Url.Action("Index", "NhanViens")">Nhân viên</a></li>
+                    <li class="active">Chi tiết</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header row">
+                        <div class="col-md-6">
+                            <h2><strong class="card-title">Chi tiết</strong></h2>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-warning" href="@Url.Action("Edit", "NhanViens", new { id = Model.MaNv })">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>&nbsp;
+                            <a href="@Url.Action("Index", "NhanViens")" class="btn btn-default">Trở về</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body row">
+                        <div class="col-lg-6">
+                            <strong>Họ tên: </strong> @Html.DisplayFor(model => model.Ho) @Html.DisplayFor(model => model.Ten) <br />
+                            <strong>Email: </strong> @Html.DisplayFor(model => model.Email)<br />
+                            <strong>Số điện thoại: </strong> @Html.DisplayFor(model => model.Sdt)<br />
+                            <strong>Phòng ban: </strong> @Html.DisplayFor(model => model.MaPbNavigation.TenPhonSg)<br />
+                            <strong>Chức vụ: </strong> @Html.DisplayFor(model => model.MaCvNavigation.TenCv)<br />
+                            <strong>Hình: </strong> <img style="width:90px; height: 120px" src="https://goeco.link/CuRLF"/>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    <strong>Người tạo: </strong>
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.NguoiTao)
+                                </dd>
+
+                                <dt>
+                                    <strong>Người cập nhật: </strong>
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.NguoiCapNhat)
+                                </dd>
+
+                                <dt>
+                                    Tạo vào lúc:
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ThoiGianTao)
+                                </dd>
+
+                                <dt>
+                                    <strong>Cập nhật lúc: </strong>
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ThoiGianCapNhat)
+                                </dd>
+
+                            </dl>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div><!-- .content -->
+
+</div><!-- .content -->

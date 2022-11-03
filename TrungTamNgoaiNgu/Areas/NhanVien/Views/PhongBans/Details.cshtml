@@ -1,0 +1,99 @@
+﻿@model MyTTNN.TrungTamNgoaiNgu.PhongBan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/NhanVien/Views/Shared/_NhanVienLayout.cshtml";
+}
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Phòng Ban</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="@Url.Action("Index", "PhongBans")">Phòng ban</a></li>
+                    <li class="active">Chi tiết</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header row">
+                        <div class="col-md-6">
+                            <h2><strong class="card-title">Chi tiết</strong></h2>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-warning" href="@Url.Action("Edit", "PhongBans", new { id = Model.MaPb })">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>&nbsp;
+                            <a href="@Url.Action("Index", "PhongBans")" class="btn btn-default">Trở về</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                <strong>Tên Phòng ban: </strong>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenPhonSg)
+                            </dd>
+
+                            <dt>
+                                <strong>Người tạo: </strong>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NguoiTao)
+                            </dd>
+
+                            <dt>
+                                <strong>Người cập nhật: </strong>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NguoiCapNhat)
+                            </dd>
+
+                            <dt>
+                                Tạo vào lúc:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ThoiGianTao)
+                            </dd>
+
+                            <dt>
+                                <strong>Cập nhật lúc: </strong>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ThoiGianCapNhat)
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div><!-- .content -->
+
+</div><!-- .content -->

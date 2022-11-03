@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MyTTNN.TrungTamNgoaiNgu.PhongBan>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/NhanVien/Views/Shared/_NhanVienLayout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Phòng Ban</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="#">phòng ban</a></li>
+                    <li class="active">Thùng rác</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header row">
+                        <div class="col-md-6">
+                            <h2><strong class="card-title">Thùng rác</strong></h2>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*<a class="btn btn-success" data-toggle="modal" data-target="#ModalCreateUpdate">
+                                    <i class="fa fa-plus" aria-hidden="true"> Thêm mới</i>
+                                </a>*@
+                            <a href="@Url.Action("Index", "PhongBans")" class="btn btn-success">
+                                Trở về
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Id
+                                    </th>
+                                    <th>
+                                        <strong><label>Tên phòng ban</label></strong>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.TrangThai == 0)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MaPb)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenPhonSg)
+                                            </td>
+
+                                            <td>
+                                                
+                                                <a class="btn btn-danger" href="@Url.Action("DelTrash", "PhongBans", new { id = item.MaPb })">
+                                                    <i class="fa fa-undo" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="btn btn-danger" name="delete" href="@Url.Action("Delete", "PhongBans", new { id = item.MaPb })">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+
+
+</div><!-- .content -->

@@ -1,0 +1,80 @@
+﻿@model MyTTNN.TrungTamNgoaiNgu.PhongBan
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/NhanVien/Views/Shared/_NhanVienLayout.cshtml";
+}
+
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Phòng ban</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="@Url.Action("Index", "PhongBans")">Phòng ban</a></li>
+                    <li class="active">Cập nhật</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header row">
+                        <div class="col-md-6">
+                            <h2><strong class="card-title">Cập nhật</strong></h2>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index", "PhongBans")" class="btn btn-default">Trở về</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.MaPb)
+
+                                <div class="form-group">
+                                    <label>Tên phòng ban</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.TenPhonSg, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TenPhonSg, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Cập nhật" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div><!-- .content -->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
